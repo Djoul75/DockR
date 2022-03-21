@@ -1,3 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <%= link_to 'Nouvelle garantie', new_invoice_path %>
+<br><br>
+<% @invoices.each do |invoice| %>
+  Date d'achat: <%= invoice.purchase_date.strftime('%A %d %B %Y') %>  <br>
+  Fin de garantie: <%= invoice.purchase_date.next_year(invoice.number_year_warranty).strftime('%A %d %B %Y') %> <br>
+  Produit: <br>
+  <%= invoice.product_name %>
+  <%= invoice.brand_name %> <br>
+  Acheté par
+  <%= invoice.user.first_name %>  <%= invoice.user.last_name %> <br><br><br>
+<% end %>

@@ -17,8 +17,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = Invoice.new(invoice_params)
-    raise
-    @invoice.user_id = current_user
+    @invoice.user_id = current_user.id
     authorize @invoice
     if @invoice.save
       redirect_to root_path
@@ -48,7 +47,7 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_params
-    params.require(:publication).permit(:purchase_date,
+    params.require(:invoice).permit(:purchase_date,
                                         :number_year_warranty,
                                         :brand_name,
                                         :product_name,
