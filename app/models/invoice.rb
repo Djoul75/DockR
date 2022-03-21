@@ -1,7 +1,4 @@
 class Invoice < ApplicationRecord
   belongs_to :user
-
-  def end_of_warranty
-
-  end
+  has_one_attached :photo
 end
