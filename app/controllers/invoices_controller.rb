@@ -48,10 +48,10 @@ class InvoicesController < ApplicationController
 
   def invoice_params
     params.require(:invoice).permit(:purchase_date,
-                                        :number_year_warranty,
-                                        :brand_name,
-                                        :product_name,
-                                        :product_category
-                                      )
+                                    :number_year_warranty,
+                                    :brand_name,
+                                    :product_name,
+                                    :product_category,
+                                    :document)
   end
 end
