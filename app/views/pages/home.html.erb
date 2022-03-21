@@ -9,5 +9,10 @@
   <%= invoice.product_name %>
   <%= invoice.brand_name %> <br>
   Acheté par
-  <%= invoice.user.first_name %>  <%= invoice.user.last_name %> <br><br><br>
+  <%= invoice.user.first_name %>  <%= invoice.user.last_name %> <br>
+  <% if invoice.document.key %>
+  <%= link_to "Afficher la garantie", "http://res.cloudinary.com/djoul75/image/upload/v1/development/#{invoice.document.key}", target: :_blank %>
+    <%#= cl_image_tag invoice.document.key, height: 300, width: 400, crop: :fill %> <br>
+  <% end %>
+  <br><br>
 <% end %>
