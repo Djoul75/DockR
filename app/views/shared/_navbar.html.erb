@@ -6,8 +6,9 @@
 
     <% if user_signed_in? %>
       <div class="d-flex navbar-collapse">
-        <%= link_to "Home", "#", class: "nav-link fromleft" %>
+        <%= link_to "Home", root_path, class: "nav-link fromleft" %>
         <%= link_to "Messages", "#", class: "nav-link fromleft" %>
+        <%= link_to 'Nouvelle garantie', new_invoice_path, class: "nav-link fromleft"  %>
       </div>
     <% end %>
 

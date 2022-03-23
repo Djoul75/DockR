@@ -12,3 +12,30 @@
     }
   }
 }
+
+.black_button {
+  background-color: $gray;
+  color: $beige;
+  padding: 5px 30px;
+  transition: ease 300ms;
+  border: 2px solid $gray;
+
+  &:hover {
+    background: transparent;
+    color: $gray;
+  }
+}
+
+.orange_button {
+  background-color: $orange;
+  color: $gray;
+  padding: 10px 30px;
+  transition: ease 300ms;
+  border: 2px solid $gray;
+  width: fit-content;
+
+  &:hover {
+    background: transparent;
+    color: $gray;
+  }
+}

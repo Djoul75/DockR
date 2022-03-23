@@ -1,0 +1,65 @@
+.home-cards {
+  display: block;
+  width: 80%;
+}
+
+.home-card {
+  display: flex;
+  width: 100%;
+  border: 1px solid $gray;
+  margin: 2vh 0;
+}
+
+.card-achat {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $gray;
+  padding: 1vh 2vw;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-fin {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $gray;
+  padding: 1vh 2vw;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-produit {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $gray;
+  padding: 1vh 2vw;
+}
+
+.card-produit-infos {
+  flex-direction: column;
+}
+
+.card-produit-garantie {
+
+}
+
+.card-actions {
+  font-size: 1.5rem;
+  display: flex;
+  width: 15%;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $gray;
+  padding: 1vh 2vw;
+
+  a{
+    color: black;
+
+    &:hover {
+      cursor: pointer;
+      color: $orange;
+    }
+  }
+}
