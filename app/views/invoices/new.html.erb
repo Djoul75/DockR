@@ -1,12 +1,31 @@
-<%= link_to 'Back', 'javascript:history.back()', class: 'yellow-button-import' %>
-<h1>Ajouter une nouvelle garantie</h1>
-
-<%= simple_form_for(@invoice) do |f| %>
-  <%= f.input :purchase_date, as: :date, html5: true %>
-  <%= f.input :number_year_warranty %>
-  <%= f.input :brand_name %>
-  <%= f.input :product_name %>
-  <%= f.input :product_category %>
-  <%= f.input :document, as: :file %>
-  <%= f.submit %>
-<% end %>
+<%= link_to 'Back', 'javascript:history.back()', class: 'orange_button' %>
+<div class="form-container mt-5">
+  <h1 class='mb-5'>Ajouter une nouvelle garantie</h1>
+  <%= simple_form_for(@invoice) do |f| %>
+    <%= f.input :purchase_date,
+                s: :date,
+                html5: true,
+                required: true,
+                label: "Date d'achat" %>
+    <%= f.input :number_year_warranty,
+                required: true,
+                label: "Nombre d'année de garantie" %>
+    <%= f.input :brand_name,
+                required: true,
+                placeholder: 'Apple',
+                label: 'Marque' %>
+    <%= f.input :product_name,
+                required: true,
+                placeholder: 'iPhone',
+                label: 'Produit' %>
+    <%= f.input :product_category,
+                required: true,
+                placeholder: 'Téléphonie',
+                label: 'Catégorie' %>
+    <%= f.input :document, as: :file,
+                label: "Facture d'achat" %>
+    <div class="d-flex justify-content-center">
+      <%= f.button :submit, "AJOUTER PRODUIT", class: 'orange_button' %>
+    </div>
+  <% end %>
+</div>

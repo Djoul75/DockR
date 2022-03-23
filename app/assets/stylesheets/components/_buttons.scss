@@ -39,3 +39,25 @@
     color: $gray;
   }
 }
+
+.fromleft {
+  color: $dark;
+
+  &:hover {
+    color: $dark;
+  }
+
+  &:after {
+    display      : block;
+    content      : '';
+    border-bottom: 2px solid $gray;
+    transform    : scaleX(0);
+    transition   : transform 300ms ease-in-out;
+    transform-origin: 0 50%;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+  }
+
+}

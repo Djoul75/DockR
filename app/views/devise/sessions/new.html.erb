@@ -1,23 +1,25 @@
-<h2>Se connecter</h2>
+<div class="form-container mt-5">
+  <h2>Se connecter</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" },
-                placeholder: 'email@email.com' %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" },
-                placeholder: '**********',
-                label: 'Mot de passe' %>
-    <%= f.input :remember_me, label: 'Se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
-  </div>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs mt-5">
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" },
+                  placeholder: 'email@email.com' %>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" },
+                  placeholder: '**********',
+                  label: 'Mot de passe' %>
+      <%= f.input :remember_me, label: 'Se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Se connecter" %>
-  </div>
-<% end %>
+    <div class="form-actions d-flex justify-content-center mb-5">
+      <%= f.button :submit, "SE CONNECTER", class: 'orange_button' %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
