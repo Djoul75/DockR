@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :publication_find, only: %i[show edit update destroy]
+  before_action :invoice_find, only: %i[show edit update destroy]
 
   def index
     # @invoices = Invoice.all
@@ -28,10 +28,16 @@ class InvoicesController < ApplicationController
 
   def edit
     authorize @invoice
+
   end
 
   def update
     authorize @invoice
+    if @invoice.update(invoice_params)
+      redirect_to invoice_path(@invoice)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -43,7 +49,7 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_find
-    @publication = Publication.find(params[:id])
+    @invoice = Invoice.find(params[:id])
   end
 
   def invoice_params
