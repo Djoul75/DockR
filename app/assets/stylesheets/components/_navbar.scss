@@ -13,6 +13,8 @@
     color: $dark;
     border-bottom: 2px solid transparent;
 
+  }
+  .fromleft {
     &:after {
       display      : block;
       content      : '';
@@ -25,6 +27,7 @@
     &:hover:after {
       transform: scaleX(1);
     }
+
   }
 }
 
@@ -34,5 +37,4 @@
 
 .dropdown-toggle:hover {
   cursor: pointer;
-
 }
