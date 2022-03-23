@@ -1,12 +1,16 @@
 <%= link_to 'Back', 'javascript:history.back()', class: 'orange_button' %>
-<h1 class='mt-5 mb-5'>Modifications de votre garantie</h1>
+<div class="form-container mt-5">
+  <h1 class='mb-5'>Modifications de votre garantie</h1>
 
-<%= simple_form_for(@invoice) do |f| %>
-  <%= f.input :purchase_date, as: :date, html5: true %>
-  <%= f.input :number_year_warranty %>
-  <%= f.input :brand_name %>
-  <%= f.input :product_name %>
-  <%= f.input :product_category %>
-  <%= f.input :document, as: :file %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for(@invoice) do |f| %>
+    <%= f.input :purchase_date, as: :date, html5: true %>
+    <%= f.input :number_year_warranty %>
+    <%= f.input :brand_name %>
+    <%= f.input :product_name %>
+    <%= f.input :product_category %>
+    <%= f.input :document, as: :file %>
+    <div class="d-flex justify-content-center">
+      <%= f.button :submit, "MODIFIER PRODUIT", class: 'orange_button' %>
+    </div>
+  <% end %>
+</div>

@@ -34,7 +34,7 @@ class InvoicesController < ApplicationController
   def update
     authorize @invoice
     if @invoice.update(invoice_params)
-      redirect_to invoice_path(@invoice)
+      redirect_to root_path
     else
       render :edit
     end
