@@ -7,8 +7,7 @@
     <% if user_signed_in? %>
       <div class="d-flex navbar-collapse">
         <%= link_to "Home", root_path, class: "nav-link fromleft" %>
-        <%= link_to "Messages", "#", class: "nav-link fromleft" %>
-        <%= link_to 'Nouvelle garantie', new_invoice_path, class: "nav-link fromleft"  %>
+        <%= link_to 'Nouvelle garantie', new_invoice_path, class: "nav-link fromleft" %>
       </div>
     <% end %>
 
@@ -25,10 +24,8 @@
               <%= image_tag "avatardefaut.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item fromleft' %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item fromleft" %>
             </div>
         <% else %>
             <%= link_to "Login", new_user_session_path, class: "black_button" %>
