@@ -1,52 +1,57 @@
 <div class="home-container">
-  <div class="home-h1">
-    <h1>Vos produits</h1>
-  </div>
-  <div class="home-cards">
-    <% if @invoices.blank? %>
-      <div class="d-flex flex-column justify-content-center align-items-center" style="height: 50vh;">
-        <h3 class='text-center'>Vous n'avez pas encore de produit</h3>
-        <%= link_to 'AJOUTER UNE GARANTIE', new_invoice_path, class: "orange_button mt-4" %>
-      </div>
-    <% end %>
-    <% @invoices.each do |invoice| %>
-      <div class="home-card">
-        <div class="card-achat">
-          <p><strong>Date d'achat:</strong></p>
-          <p><%= invoice.purchase_date.strftime('%d %B %Y') %></p>
+  <% if user_signed_in? %>
+
+    <div class="home-h1">
+      <h1>Vos produits</h1>
+    </div>
+    <div class="home-cards">
+      <% if @invoices.blank? %>
+        <div class="d-flex flex-column justify-content-center align-items-center" style="height: 50vh;">
+          <h3 class='text-center'>Vous n'avez pas encore de produit</h3>
+          <%= link_to 'AJOUTER UNE GARANTIE', new_invoice_path, class: "orange_button mt-4" %>
         </div>
-        <div class="card-fin">
-          <p><strong>Fin de garantie:</strong></p>
-          <p><%= invoice.purchase_date.next_year(invoice.number_year_warranty).strftime('%d %B %Y') %></p>
-        </div>
-        <div class="card-produit">
-          <div class="card-produit-infos">
-            <p><strong>Produit:</strong></p>
-            <p><%= invoice.brand_name %>
-            <%= invoice.product_name %></p>
+      <% end %>
+      <% @invoices.each do |invoice| %>
+        <div class="home-card">
+          <div class="card-achat">
+            <p><strong>Date d'achat:</strong></p>
+            <p><%= invoice.purchase_date.strftime('%d %B %Y') %></p>
           </div>
-          <div class="card-produit-infos">
-            <p><strong>Catégorie:</strong></p>
-            <p><%= invoice.product_category %></p>
+          <div class="card-fin">
+            <p><strong>Fin de garantie:</strong></p>
+            <p><%= invoice.purchase_date.next_year(invoice.number_year_warranty).strftime('%d %B %Y') %></p>
           </div>
-          <div class="card-produit-garantie">
-            <% if invoice.document.key %>
-            <%= link_to "AFFICHER LA FACTURE", "http://res.cloudinary.com/djoul75/image/upload/v1/development/#{invoice.document.key}", target: :_blank, class: 'orange_button' %>
-            <% end %>
+          <div class="card-produit">
+            <div class="card-produit-infos">
+              <p><strong>Produit:</strong></p>
+              <p><%= invoice.brand_name %>
+              <%= invoice.product_name %></p>
+            </div>
+            <div class="card-produit-infos">
+              <p><strong>Catégorie:</strong></p>
+              <p><%= invoice.product_category %></p>
+            </div>
+            <div class="card-produit-garantie">
+              <% if invoice.document.key %>
+              <%= link_to "AFFICHER LA FACTURE", "http://res.cloudinary.com/djoul75/image/upload/v1/development/#{invoice.document.key}", target: :_blank, class: 'orange_button' %>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-actions">
+          <%= link_to edit_invoice_path(invoice.id) do %>
+            <i class="fas fa-pencil"></i>
+          <% end %>
+          <%= link_to invoice_path(invoice.id), method: :delete do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
           </div>
         </div>
-        <div class="card-actions">
-        <%= link_to invoice_path(invoice.id) do %>
-          <i class="fas fa-eye"></i>
-        <% end %>
-        <%= link_to edit_invoice_path(invoice.id) do %>
-          <i class="fas fa-pencil"></i>
-        <% end %>
-        <%= link_to invoice_path(invoice.id), method: :delete do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+
+  <% else %>
+
+    Bienvenue sur DockR
+
+  <% end %>
 </div>
