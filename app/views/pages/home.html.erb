@@ -50,8 +50,17 @@
     </div>
 
   <% else %>
-
-    Bienvenue sur DockR
+    <br><br><br><br><br>
+    <div class="message-accueil d-flex flex-column text-center p-5 mt-5 align-items-center justify-content-center w-50">
+      <h4>Bienvenue sur</h4>
+      <h1>DockR</h1>
+      <br>
+      <p>Rassemblez toutes vos garanties, ayez une visualistion claire
+      de vos produits sous garantie et retrouvez facilement la facture correspondante</p>
+      <br>
+      <p>Pas encore inscrit ?</p>
+      <%= link_to "S'INSCRIRE", new_user_registration_path, class: "orange_button mt-2" %>
+    </div>
 
   <% end %>
 </div>
