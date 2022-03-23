@@ -1,0 +1,14 @@
+.navbar-lewagon .navbar-collapse {
+  .black_button {
+    background-color: $gray;
+    color: $beige;
+    padding: 5px 30px;
+    transition: ease 300ms;
+    border: 2px solid $gray;
+
+    &:hover {
+      background: transparent;
+      color: $gray;
+    }
+  }
+}
